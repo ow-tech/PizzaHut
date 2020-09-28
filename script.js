@@ -36,18 +36,17 @@ $(document).ready(function(){
                     text:'Please Enter Your Location !!!\n By clicking ok Button Again',
                     icon:'error'
                 })
-                // alert('Please Enter Your Location !!!\n By clicking Yes Button Again')
+
             } else{
                 swal({
                     title: "Good job!. Order Completed",
-                    text: `Your order will be delivered to ${location} in about 1 hour.\n Total Amount is ksh. ${total} + Delivery ${deliveryStatus}`,
+                    text: `Your order will be delivered to ${location} in about 1 hour.\n Total Amount is ksh. ${total+deliveryStatus} + Delivery`,
                     icon: "success",
                   })}
         }
         else{
             swal({
                 title: "Good job!. Order Completed",
-                text: `Your order will be delivered to ${location}  in about 1 hour.\n Total Amount is ksh. ${total} + Delivery ${deliveryStatus}`,
-                icon: "success",})}
+                text: `Your order will be Ready ${location}  in about 30mins \n Total Amount is ksh. ${total}`})}
     })
 });

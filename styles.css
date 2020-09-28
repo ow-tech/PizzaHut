@@ -64,3 +64,10 @@ h2{
     max-width: 100%;
     border-radius:4px;
 }
+.modal-content{
+    background:url(https://bit.ly/36laYK6);
+    background-size:cover;
+	background-repeat:no-repeat;
+    background-attachment:fixed;
+    color:white;
+}
