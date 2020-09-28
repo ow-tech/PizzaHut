@@ -1,5 +1,20 @@
+
+body{
+	margin:0px;
+	padding:0px;
+	background-image:url(https://bit.ly/2S1NLVf);
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-attachment:fixed;}
 *{
-    margin:0;
-    padding:0;
-    background-color: #BAB9B9;
+	box-sizing:border-box;}
+/* #nav{
+    height:10vh;
+} */
+.bg{
+    background:rgba(163, 0, 0, 0.63);
+}
+.logo{
+    height: 100px;
+    overflow: hidden;
 }
