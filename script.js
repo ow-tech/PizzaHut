@@ -2,8 +2,8 @@
 
 $(document).ready(function(){
     $('.card').hover(function(){
-        $('.details', this).toggle(2000)
-    });
+        $('.details', this).toggle(1000)
+    })
 });
 
 
@@ -24,7 +24,10 @@ $(document).ready(function(){
         let pizzaType = $('input').val();
         let psize =$(".psize[type='radio']:checked").val();
         let crust = $(".custom-select option:selected").val();
-        let toppings =$ ("input[type='checkbox']:checked").val();
+        let ptopping = [];
+        $.each($("input[name='toppings']:checked"), function(){            
+            ptopping.push($(this).val())
+        });
         let number =$("#getnumber option:selected").val();
         let delivery= $(".delivered[type='checkbox']:checked ").val();
         let deliveryStatus = parseInt(delivery);
@@ -45,3 +48,18 @@ $(document).ready(function(){
                 });}
     });
 });
+
+// cart js
+// removing item from cart
+// loop through available buttons.
+// set a container to store the clicked button
+// add addEventListener to the clicked button
+
+let removeCartItem = document.getElementsByClassName('btn-danger')
+for (let i = 0; i<=removeCartItem.length; ++i){
+    let btn = removeCartItem[i];
+    btn.addEventListener('click', function(event){
+        let btnClicked = event.target
+        btnClicked.parentElement.parentElement.remove()
+    })
+}
