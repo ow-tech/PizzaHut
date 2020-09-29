@@ -76,6 +76,12 @@ $(document).ready(function(){
             let pizzaName = pizzaOrdered.getElementsByClassName('pizzaName')[0].innerText
             let price = pizzaOrdered.getElementsByClassName('price')[0].innerText
             addOrderedPizzaToCart(pizzaName, price, image)
+
+            swal({
+                title: `${pizzaName} added to Cart`,
+                text: `Your order needs to be checkedOut from Cart Tab`,
+                icon: "info",
+            })
         }
         function addOrderedPizzaToCart(pizzaName, price, image){
             let cartRow = document.createElement('tr')

@@ -8,8 +8,8 @@ function getLocation(){
     }else{
         swal({
             title: "Good job!. Order Completed",
-            text: `Your order will be delivered to ${location} in about 1 hour.\n Total Amount is ksh. ${total+deliveryStatus} inclusive of Delivery cost`,
+            text: `Your order will be delivered to ${location} in about 1 hour. inclusive of Delivery cost`,
             icon: "success",
             });}
 
-}
+};
