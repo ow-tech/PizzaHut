@@ -21,7 +21,6 @@ function myPizza(pizzaType, psize, crust, toppings, number, deliveryStatus){
 
 $(document).ready(function(){
     $('#makeOrder').click(function(){
-        
         let pizzaType = $('input').val();
         let psize =$(".psize[type='radio']:checked").val();
         let crust = $(".custom-select option:selected").val();
@@ -33,10 +32,8 @@ $(document).ready(function(){
         let delivery= $(".delivered[type='checkbox']:checked ").val();
         let deliveryStatus = parseInt(delivery);
         let total= (parseInt(psize) + parseInt(crust))*parseInt(number);
-        alert('i have been clicked')
         event.preventDefault();
         let location = prompt('Where is convenient location for Delivery');
-        alert('location prompted')
         if (location == ''){
             swal({
                 title: 'Location is a Must',
@@ -48,8 +45,41 @@ $(document).ready(function(){
                 text: `Your order will be delivered to ${location} in about 1 hour.\n Total Amount is ksh. ${total+deliveryStatus} inclusive of Delivery cost`,
                 icon: "success",
                 });}
-    })
+            // let addToCartBtn = {
+            //     price:total,
+            //     number:number,
+            //     toppings:ptopping,
+            // }
+        });
+
+        let removeCartItem = document.getElementsByClassName('btn-danger')
+        for (let i = 0; i < removeCartItem.length; ++i){
+            let btn = removeCartItem[i];
+            btn.addEventListener('click', function(event){
+                let btnClicked = event.target
+                btnClicked.parentElement.parentElement.remove()
+            })
+        }
+        let addToCartBtn = document.getElementsByClassName('orderMe')
+        for (let i = 0; i < addToCartBtn.length; ++i){
+            let btn = addToCartBtn[i]
+            btn.addEventListener('click', addToCartClicked)
+           
+        }
+        
+        function addToCartClicked(event){
+            let btn = event.target
+            pizzaOrdered = btn.parentElement.parentElement
+            let image = pizzaOrdered.getElementsByClassName('imgBox')[0].innerText
+            let pizzaName = pizzaOrdered.getElementsByClassName('pizzaName')[0].innerText
+            let price = pizzaOrdered.getElementsByClassName('price')[1].innerText
+        
+        }
+        
 });
+
+
+
 // cart js
 // removing item from cart
 // loop through available buttons.
