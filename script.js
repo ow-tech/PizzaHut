@@ -21,6 +21,7 @@ function myPizza(pizzaType, psize, crust, toppings, number, deliveryStatus){
 
 $(document).ready(function(){
     $('#makeOrder').click(function(){
+        
         let pizzaType = $('input').val();
         let psize =$(".psize[type='radio']:checked").val();
         let crust = $(".custom-select option:selected").val();
@@ -31,9 +32,11 @@ $(document).ready(function(){
         let number =$("#getnumber option:selected").val();
         let delivery= $(".delivered[type='checkbox']:checked ").val();
         let deliveryStatus = parseInt(delivery);
-        let total= (parseInt(psize) + parseInt(crust) + parseInt(toppings))*parseInt(number)
-        event.preventDefault()
-        let location = prompt('Where is convenient location for Delivery')
+        let total= (parseInt(psize) + parseInt(crust))*parseInt(number);
+        alert('i have been clicked')
+        event.preventDefault();
+        let location = prompt('Where is convenient location for Delivery');
+        alert('location prompted')
         if (location == ''){
             swal({
                 title: 'Location is a Must',
@@ -46,36 +49,14 @@ $(document).ready(function(){
                 icon: "success",
                 });}
     })
-    console.log(number)
-    return number
 });
-
 // cart js
 // removing item from cart
 // loop through available buttons.
 // set a container to store the clicked button
 // add addEventListener to the clicked button
 
-let removeCartItem = document.getElementsByClassName('btn-danger')
-for (let i = 0; i < removeCartItem.length; ++i){
-    let btn = removeCartItem[i];
-    btn.addEventListener('click', function(event){
-        let btnClicked = event.target
-        btnClicked.parentElement.parentElement.remove()
-    })
-}
 
-let addToCartBtn = document.getElementsByClassName('btn-unique')
-for (let i = 0; i < addToCartBtn.length; ++i){
-    let btn = addToCartBtn[i]
-    btn.addEventListener('click', addToCartClicked)
-};
-
-function addToCartClicked(event){
-    let btn = event.target
-    pizzaOrdered = btn.parentElement.parentElement
-    btn.parentElement.parentElement
-}
 
 // ASsumption. there are several items in the cart. we need to get the grand total
 // zz
