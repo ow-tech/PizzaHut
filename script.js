@@ -31,7 +31,6 @@ $(document).ready(function(){
         let number =$("#getnumber option:selected").val();
         let delivery= $(".delivered[type='checkbox']:checked ").val();
         let deliveryStatus = parseInt(delivery);
-
         let total= (parseInt(psize) + parseInt(crust) + parseInt(toppings))*parseInt(number)
         event.preventDefault()
         let location = prompt('Where is convenient location for Delivery')
@@ -46,7 +45,9 @@ $(document).ready(function(){
                 text: `Your order will be delivered to ${location} in about 1 hour.\n Total Amount is ksh. ${total+deliveryStatus} inclusive of Delivery cost`,
                 icon: "success",
                 });}
-    });
+    })
+    console.log(number)
+    return number
 });
 
 // cart js
@@ -56,10 +57,25 @@ $(document).ready(function(){
 // add addEventListener to the clicked button
 
 let removeCartItem = document.getElementsByClassName('btn-danger')
-for (let i = 0; i<=removeCartItem.length; ++i){
+for (let i = 0; i < removeCartItem.length; ++i){
     let btn = removeCartItem[i];
     btn.addEventListener('click', function(event){
         let btnClicked = event.target
         btnClicked.parentElement.parentElement.remove()
     })
 }
+
+let addToCartBtn = document.getElementsByClassName('btn-unique')
+for (let i = 0; i < addToCartBtn.length; ++i){
+    let btn = addToCartBtn[i]
+    btn.addEventListener('click', addToCartClicked)
+};
+
+function addToCartClicked(event){
+    let btn = event.target
+    pizzaOrdered = btn.parentElement.parentElement
+    btn.parentElement.parentElement
+}
+
+// ASsumption. there are several items in the cart. we need to get the grand total
+// zz
