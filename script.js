@@ -93,8 +93,9 @@ $(document).ready(function(){
             cartItems.append(cartRow)
             cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
         }
-});
 
+        
+});
 
 
 // cart js
