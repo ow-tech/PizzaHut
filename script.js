@@ -9,7 +9,6 @@ $(document).ready(function(){
 
 // Business logic
 
-
 function myPizza(pizzaType, psize, crust, toppings, number, deliveryStatus){
     this.pizzaType=pizzaType;
     this.psize=psize;
@@ -18,7 +17,6 @@ function myPizza(pizzaType, psize, crust, toppings, number, deliveryStatus){
 	this.number=number;
 	this.deliveryStatus=deliveryStatus;
 }
-
 $(document).ready(function(){
     $('#makeOrder').click(function(){
         let pizzaType = $('input').val();
@@ -45,11 +43,6 @@ $(document).ready(function(){
                 text: `Your order will be delivered to ${location} in about 1 hour.\n Total Amount is ksh. ${total+deliveryStatus} inclusive of Delivery cost`,
                 icon: "success",
                 });}
-            // let addToCartBtn = {
-            //     price:total,
-            //     number:number,
-            //     toppings:ptopping,
-            // }
         });
 
         let removeCartItemBtn = document.getElementsByClassName('btn-danger')
@@ -68,7 +61,6 @@ $(document).ready(function(){
             btn.addEventListener('click', addToCartClicked)
            
         }
-        
         function addToCartClicked(event){
             let btn = event.target
             pizzaOrdered = btn.parentElement.parentElement
@@ -99,8 +91,6 @@ $(document).ready(function(){
             cartItems.append(cartRow)
             cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
         }
-
-        
 });
 
 
