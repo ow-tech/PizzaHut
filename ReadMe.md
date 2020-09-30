@@ -15,13 +15,13 @@ This is a web application for Pizza Pizzaria Hut which is a pizza selling ventur
 <img src="https://bit.ly/2ScdZ7l" width="900px" height="440px">
 
 ## Live Page 
-https://ow-tech.github.io/ 
+hhttps://ow-tech.github.io/PizzaHut/
 
 
 ## Installation / Setup instruction
 * Open Terminal {Ctrl+Alt+T}
 
-* git clone ```https://github.com/``
+* git clone ```https://github.com/ow-tech/PizzaHut.git```
 
 * cd Pizza-Deliciosa
 
