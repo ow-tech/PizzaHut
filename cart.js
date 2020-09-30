@@ -41,7 +41,7 @@ function cartTotal(){
     let itemsInCartContainer = document.getElementsByClassName('itemsInCart')[0]
     let cartRows = itemsInCartContainer.getElementsByClassName('cart-row')
     let grandTotal = 0
-    for (let i = 0; i < cartRows.length; i++) {
+    for (let i = 1; i < cartRows.length; i++) {
         let cartRow = cartRows[i]
         let priceElement = cartRow.getElementsByClassName('cart-price')[0]
         let quantityElement = cartRow.getElementsByClassName('quantity')[0]
