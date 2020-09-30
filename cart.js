@@ -1,29 +1,10 @@
 
-function getLocation(){
-    let location = prompt('Where is convenient location for Delivery');
-    if (location == ''){
-        swal({
-            title: 'Location is a Must',
-            text:'Please Enter Your Location !!!\n By clicking ok Button Again',
-            icon:'error'});
-    }else{
-        swal({
-            title: "Good job!. Order Completed",
-            text: `Your order will be delivered to ${location} in about 1 hour. inclusive of Delivery cost`,
-            icon: "success",
-            });}
-
-}
-
-
 // busines logic
-
 let removeCartItemBtn = document.getElementsByClassName('btn-danger')
     for (let i = 0; i < removeCartItemBtn.length; i++){
         let btn = removeCartItemBtn[i]
         btn.addEventListener('click', removeCartItem )
     }
-
 let quantityInputs =document.getElementsByClassName('quantity')
 
 for (let i = 0; i < quantityInputs.length; i++){
@@ -49,7 +30,6 @@ function cartTotal(){
     document.getElementsByClassName('grandTotal')[0].innerText = 'Ksh. ' + grandTotal
     return grandTotal
 }
-    
 function removeCartItem(event){
     let btnClicked = event.target
     btnClicked.parentElement.parentElement.remove()
@@ -69,11 +49,6 @@ function addToCartClicked(event){
     let price = pizzaOrdered.getElementsByClassName('price')[0].innerText
     addOrderedPizzaToCart(pizzaName, price, image)
 
-    swal({
-        title: `${pizzaName} added to Cart`,
-        text: `Your order needs to be checkedOut from Cart Tab`,
-        icon: "info",
-    })
 }
 function addOrderedPizzaToCart(pizzaName, price, quantity){
     let cartRow = document.createElement('tr')
@@ -90,12 +65,15 @@ function addOrderedPizzaToCart(pizzaName, price, quantity){
         `
     cartRow.innerHTML= cartRowContents
     cartItems.append(cartRow)
+    swal({
+        title: `${pizzaName} added to Cart`,
+        text: `Your order needs to be checkedOut from Cart Tab`,
+        icon: "info",
+    })
     cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
     cartTotal()
 }
 cartTotal();
-
-
 function ownOrder(){
     let pizzaName = $('.pizzaname').val();
     let psize =$(".psize[type='radio']:checked").val();
@@ -112,19 +90,18 @@ function ownOrder(){
     let image ='no imp'
     addOrderedPizzaToCart(pizzaName, price, quantity)
 }
-
-function checkout(){
+function checkOut(){
     let grandTotal = cartTotal()
     let location = prompt('Where is convenient location for Delivery');
-    if (location == ''){
+    if (grandTotal === 0 ||location == ''){
         swal({
-            title: 'Location is a Must',
-            text:'Please Enter Your Location !!!\n By clicking ok Button Again',
+            title: 'Must have Item on Cart and Set your Location',
+            text:'Please Continue Shopping!!!\n By clicking ok Button Again',
             icon:'error'});
     }else{
         swal({
             title: "Good job!. Order Completed",
-            text: `Your order will be delivered to ${location} in about 1 hour.\n Total Amount is ksh. ${total+deliveryStatus} inclusive of Delivery cost`,
+            text: `Your order will be delivered to ${location} in about 1 hour.\n Total Amount is ksh. ${grandTotal} inclusive of Delivery cost`,
             icon: "success",
-            });}
+          });}
 }
