@@ -106,7 +106,7 @@ function ownOrder(){
 function checkOut(){
     let grandTotal = cartTotal()
     let location = prompt('Where is convenient location for Delivery');
-    if (grandTotal === 0 ||location == ''){
+    if (grandTotal <= 1 ||location == ''){
         swal({
             title: 'Must have Item on Cart and Set your Location',
             text:'Please Continue Shopping!!!\n By clicking ok Button Again',
