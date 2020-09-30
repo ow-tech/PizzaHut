@@ -1,3 +1,5 @@
+*{  scroll-behavior: smooth;
+}
 
 body{
 	margin:0px;
@@ -7,12 +9,8 @@ body{
 	background-repeat:no-repeat;
     background-attachment:fixed;
 }
-*{
-    box-sizing:border-box;
-}
-/* #nav{
-    height:10vh;
-} */
+
+
 .bg{
     background:rgba(163, 0, 0, 0.63);
 }

@@ -7,7 +7,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-		<script src="cart.js"></script>
+		<script src="cart.js" async></script>
     <link rel="stylesheet" type='text/css' href="styles.css">
     <title>PizzaHut</title>
 </head>
@@ -40,7 +40,7 @@
       <div class='container'>
 				<div class='row'>
 					<div class='card'>
-						<img class='imgBox' src='https://bit.ly/2EFeJin' loading='lazy'>
+						<img class='imgBox' src='https://bit.ly/2EFeJin' loading=lazy'>
 							<div class='content'>
 								<h2 class='pizzaName'>Margherita Pizza</h2>
 								<span class='price'>Ksh. 1000</span>
@@ -49,7 +49,7 @@
 							</div>
 					</div>
 					<div class='card'>
-						<img class='imgBox'src='https://bit.ly/3ia6CYK' loading='lazy>
+						<img class='imgBox'src='https://bit.ly/3ia6CYK' loading=''lazy>
 						<div class='content'>
 								<h2 class='pizzaName'>Pepperoni Pizza</h2>
 								<span class='price'>Ksh. 1200</span>
@@ -59,7 +59,7 @@
 						</div>
 				</div>
 						<div class='card'>
-							<img class='imgBox' src='https://bit.ly/3i9RPNJ' loading='lazy>
+							<img class='imgBox' src='https://bit.ly/3i9RPNJ' loading=''lazy>
 							<div class='content'>
 									<h2 class='pizzaName'>BBQ Chicken Pizza</h2>
 									<span class='price'>1400</span>
@@ -79,7 +79,7 @@
 									</div>
 							</div>
 							<div class='card'>
-										<img class='imgBox' src='https://bit.ly/3ia6CYK' loading='lazy>
+										<img class='imgBox' src='https://bit.ly/3ia6CYK' loading=''lazy>
 								<div class='content'>
 									<h2 class='pizzaName'>BBQ Chicken Pizza</h2>
 									<span class='price'>1400</span>
@@ -88,7 +88,7 @@
 								</div>
 						</div>
 						<div class='card'>
-										<img class='imgBox' src='https://bit.ly/3i9RPNJ' loading='lazy>
+										<img class='imgBox' src='https://bit.ly/3i9RPNJ' loading=''lazy>
 								<div class='content'>
 										<h2 class='pizzaName'>BBQ Chicken Pizza</h2>
 										<span class='price'>1400</span>
@@ -235,24 +235,29 @@
       </div>
       <!--Body-->
       <div class="modal-body">
-        <table class="table table-hover">
-          <thead >
+        <table class="table table-hover itemsInCart">
+          <thead class='' >
             <tr >
               <th>Order_number</th>
               <th>Product name</th>
               <th>Price</th>
-              <th>Remove</th>
+              <th>Amount</th>
             </tr>
           </thead>
-          <tbody class='cart-row'>
+          <tbody class='cart-row' >
+						
           </tbody>
         </table>
 
       </div>
       <!--Footer-->
       <div class="modal-footer">
-        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
-        <button class="btn " onClick='getLocation()' >Checkout<i class="fas fa-paper-plane-o ml-1" ></i></button>
+        <div>
+          <strong>Total</strong>
+          <p class = 'grandTotal'>Ksh. </p>
+        </div>
+        <button type="button" class="btn btn-outline-info btn-small" data-dismiss="modal">Close</button>
+        <button class="btn btn-small" onClick='getLocation()' >Checkout<i class="fas fa-paper-plane-o ml-1" ></i></button>
       </div>
     </div>
   </div>
@@ -263,7 +268,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="cart.js"></script>
+    <script src="cart.js" async></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src='script.js'></script>
 </body>

@@ -1,4 +1,9 @@
 // user interface
+window.scroll({
+    top: 2500, 
+    left: 0, 
+    behavior: 'smooth'
+  });
 
 $(document).ready(function(){
     $('.card').hover(function(){
@@ -45,52 +50,8 @@ $(document).ready(function(){
                 });}
         });
 
-        let removeCartItemBtn = document.getElementsByClassName('btn-danger')
-        for (let i = 0; i < removeCartItemBtn.length; ++i){
-            let btn = removeCartItemBtn[i];
-            btn.addEventListener('click', removeCartItem )
-        }
-        
-        function removeCartItem(event){
-            let btnClicked = event.target
-            btnClicked.parentElement.parentElement.remove()
-        }
-        let addToCartBtn = document.getElementsByClassName('orderMe')
-        for (let i = 0; i < addToCartBtn.length; ++i){
-            let btn = addToCartBtn[i]
-            btn.addEventListener('click', addToCartClicked)
-           
-        }
-        function addToCartClicked(event){
-            let btn = event.target
-            pizzaOrdered = btn.parentElement.parentElement
-            let image = pizzaOrdered.getElementsByClassName('imgBox')[0].src
-            let pizzaName = pizzaOrdered.getElementsByClassName('pizzaName')[0].innerText
-            let price = pizzaOrdered.getElementsByClassName('price')[0].innerText
-            addOrderedPizzaToCart(pizzaName, price, image)
 
-            swal({
-                title: `${pizzaName} added to Cart`,
-                text: `Your order needs to be checkedOut from Cart Tab`,
-                icon: "info",
-            })
-        }
-        function addOrderedPizzaToCart(pizzaName, price, image){
-            let cartRow = document.createElement('tr')
-            cartRow.classList.add('cart-row')
-            let cartItems = document.getElementsByClassName('cart-row')[0]
-            let cartRowContents =`
-              <th scope="row">111##</th>
-              <td><img src=${image} width="75" height="50"><span>${pizzaName}</span></td>
-              <td>${ price}</td>
-              <td>
-                <button type="button"  class="btn btn-danger">Remove</button>
-              </td>
-            `
-            cartRow.innerHTML= cartRowContents
-            cartItems.append(cartRow)
-            cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
-        }
+
 });
 
 
