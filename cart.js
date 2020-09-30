@@ -47,9 +47,8 @@ function cartTotal(){
         let quantityElement = cartRow.getElementsByClassName('quantity')[0]
         let price = parseInt(priceElement.innerText.replace('Ksh.',''))
         let quantity = quantityElement.value
-        console.log( price * quantity)
+        console.log(price, quantity)
         grandTotal = grandTotal + (price * quantity)
-
     }
     document.getElementsByClassName('grandTotal')[0].innerText = 'Ksh. ' + grandTotal
 }
