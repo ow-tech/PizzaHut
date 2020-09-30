@@ -117,20 +117,20 @@
                       <i class="fas fa-user prefix grey-text"></i>
                       <!-- Material inline 1 -->
                         <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input "  id="materialInline1" name="inlineMaterialRadiosExample" value='margherita'>
+                            <input type="radio" class="form-check-input pizzaname "  id="materialInline1" name="inlineMaterialRadiosExample" value='margherita'>
                             <label class="form-check-label" for="materialInline1">Margherita</label>
                         </div>
                         
                         <!-- Material inline 2 -->
                         <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" id="materialInline2" name="inlineMaterialRadiosExample" value='peperoni'>
+                            <input type="radio" class="form-check-input pizzaname" id="materialInline2" name="inlineMaterialRadiosExample" value='peperoni'>
                             <label class="form-check-label" for="materialInline2">Pepperoni</label>
                         </div>
                         
                         <!-- Material inline 3 -->
                         <div class="form-check form-check-inline">
                             <input type="radio" class="form-check-input" id="materialInline3" name="inlineMaterialRadiosExample" value="BBQ Chicken">
-                            <label class="form-check-label" for="materialInline3">BBQ Chicken</label>
+                            <label class="form-check-label pizzaname" for="materialInline3">BBQ Chicken</label>
                         </div>
                     </div>
 
@@ -165,7 +165,6 @@
                     </div>
                   </div>
 
-                    
 
                     <div class="md-form mb-5">
 											<div class="toppings">
@@ -210,8 +209,8 @@
 
       </div>
       <div class="modal-footer d-flex justify-content-center">
-        <input type="button" value="OrderMe" onClick='' class='btn orderMe'>
-        <button class="btn btn-unique " id='makeOrder' data-dismiss="modal">Checkout<i class="fas fa-paper-plane-o ml-1" ></i></button>
+        <button class='btn-small'type='button'onclick="ownOrder()" data-dismiss="modal">Make Order</button>
+        <button class="btn btn-unique " id='makeOrder' >Checkout<i class="fas fa-paper-plane-o ml-1" ></i></button>
       </div>
     </div>
   </div>
@@ -270,5 +269,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src='script.js'></script>
+    <script src='cart.js'></script>
 </body>
 </html>
