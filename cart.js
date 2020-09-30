@@ -13,13 +13,17 @@ for (let i = 0; i < quantityInputs.length; i++){
 }
 function quantityChange(event){
     quantityInput = event.target
-    quantityInput.cartTotal()
+    if(isNaN(quantityInput.val)){
+        quantityInput = 1
+    }
+    cartTotal()
     }
 function cartTotal(){
     let itemsInCartContainer = document.getElementsByClassName('itemsInCart')[0]
     let cartRows = itemsInCartContainer.getElementsByClassName('cart-row')
     let grandTotal = 0
-    for (let i = 1; i < cartRows.length; i++) {
+    let cartRowslength = cartRows.length
+    for (let i = 1; i < cartRowslength; i++) {
         let cartRow = cartRows[i]
         let priceElement = cartRow.getElementsByClassName('cart-price')[0]
         let quantityElement = cartRow.getElementsByClassName('quantity')[0]
@@ -28,7 +32,7 @@ function cartTotal(){
         grandTotal = grandTotal + (price * quantity)
     }
     document.getElementsByClassName('grandTotal')[0].innerText = 'Ksh. ' + grandTotal
-    return grandTotal
+    return grandTotal, cartRowslength
 }
 function removeCartItem(event){
     let btnClicked = event.target
@@ -47,10 +51,12 @@ function addToCartClicked(event){
     let image = pizzaOrdered.getElementsByClassName('imgBox')[0].src
     let pizzaName = pizzaOrdered.getElementsByClassName('pizzaName')[0].innerText
     let price = pizzaOrdered.getElementsByClassName('price')[0].innerText
-    addOrderedPizzaToCart(pizzaName, price, image)
+    let quantity = 1
+    addOrderedPizzaToCart(pizzaName, price, quantity)
 
 }
 function addOrderedPizzaToCart(pizzaName, price, quantity){
+    
     let cartRow = document.createElement('tr')
     cartRow.classList.add('cart-row')
     let cartItems = document.getElementsByClassName('cart-row')[0]
@@ -72,8 +78,16 @@ function addOrderedPizzaToCart(pizzaName, price, quantity){
     })
     cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
     cartTotal()
+    document.getElementsByClassName('cartItemsPicked')[0].innerText= (cartTotal([1])-1)
+    autoUpDateCartCount =  removeCartItem()
+    autoUpDateCartCount.addEventListener('call', reduceCartCount)
 }
-cartTotal();
+function reduceCartCount(event){
+    parsdocument.getElementsByClassName('cartItemsPicked')[0].innerText= event.target
+    parseInt(document.getElementsByClassName('cartItemsPicked')[0].innerText)-=1
+    
+}
+
 function ownOrder(){
     let pizzaName = $('.pizzaname').val();
     let psize =$(".psize[type='radio']:checked").val();
@@ -87,7 +101,6 @@ function ownOrder(){
     let deliveryStatus = parseInt(delivery);
     let price= (parseInt(psize) + parseInt(crust))*parseInt(quantity);
     event.preventDefault();
-    let image ='no imp'
     addOrderedPizzaToCart(pizzaName, price, quantity)
 }
 function checkOut(){
@@ -105,3 +118,4 @@ function checkOut(){
             icon: "success",
           });}
 }
+cartTotal()
