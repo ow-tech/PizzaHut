@@ -1,4 +1,8 @@
-
+window.scroll({
+    top: 2500, 
+    left: 0, 
+    behavior: 'smooth'
+  });  
 // busines logic
 let removeCartItemBtn = document.getElementsByClassName('btn-danger')
     for (let i = 0; i < removeCartItemBtn.length; i++){
